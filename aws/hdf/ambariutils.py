@@ -11,7 +11,7 @@ class ambariutils:
         self.conf = conf
 
     def get_request(self, url):
-        return req.get(url)
+        return req.get(url,auth=(self.conf.username, self.conf.password))
 
     def get_component_hostname(self, cluster_name, service_name, component_name):
         extended_url = self.conf.get_base_url() + 'clusters/' + cluster_name + '/services/' + service_name + '/components/' + component_name

@@ -8,7 +8,7 @@ from scripts.resources import tenant, awsutils
 
 dev_bucket = "DEVELOPMENT"
 dev_bucket_id = ""
-conf = hc.hostconfig(port='8443',username='admin',password='admin')
+conf = hc.hostconfig(port='8443',username='username',password='password')
 
 amb_client = amb.ambariutils(conf)
 host = amb_client.get_component_hostname('AW', 'NIFI_REGISTRY', 'NIFI_REGISTRY_MASTER')
