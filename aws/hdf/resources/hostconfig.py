@@ -8,7 +8,7 @@ class hostconfig(object):
             port (int): The port for api communication
             base_url (str): The base url used for all api requests
         """
-    def __init__(self, host="localhost", port=8080, username='username', password='password'):
+    def __init__(self, host="localhost", port='8080', username='username', password='password'):
         self.hostname = host
         self.port = port
         self.username = username
