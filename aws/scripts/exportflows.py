@@ -11,7 +11,8 @@ dev_bucket_id = ""
 conf = hc.hostconfig(port='8443',username='admin',password='admin')
 
 amb_client = amb.ambariutils(conf)
-amb_client.get_component_hostname('AW', 'NIFI_REGISTRY', 'NIFI_REGISTRY_MASTER')
+host = amb_client.get_component_hostname('AW', 'NIFI_REGISTRY', 'NIFI_REGISTRY_MASTER')
+print(host)
 
 nipyapi.config.registry_config.host = 'http://ip-10-15-20-152.ec2.internal:61080/nifi-registry-api'
 
@@ -39,4 +40,3 @@ for flow in flows:
     export_file.write(contents)
     export_file.close()
     s3_client.upload_file(filename, s3_bucket, s3_path+filename)
-
