@@ -12,16 +12,21 @@ dev_bucket_id = ""
 conf = hc.hostconfig(port='8443',username='username',password='password')
 
 cred_loc = "/tmp/creds.json"
-credentials = open(cred_loc,"r")
+with open(cred_loc,"r") as file:
+    credentials = file.read()
+
+
 cred_json = json.loads(credentials)
 
-conf.set_password(cred_json['password'],cred_json['username'])
+conf.set_password(cred_json['password'])
+conf.set_username(cred_json['username'])
+
 
 amb_client = amb.ambariutils(conf)
 host = amb_client.get_component_hostname('AW', 'NIFI_REGISTRY', 'NIFI_REGISTRY_MASTER')
-print(host)
 
-nipyapi.config.registry_config.host = 'http://ip-10-15-20-152.ec2.internal:61080/nifi-registry-api'
+
+nipyapi.config.registry_config.host = 'http://'+ host +':61080/nifi-registry-api'
 
 buckets =  nipyapi.versioning.list_registry_buckets()
 
