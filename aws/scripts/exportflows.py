@@ -10,7 +10,7 @@ dev_bucket = "DEVELOPMENT"
 dev_bucket_id = ""
 conf = hc.hostconfig(port='8443',username='username',password='password')
 
-cred_loc = /tmp/creds.json
+cred_loc = "/tmp/creds.json"
 credentials = open(cred_loc,"r")
 cred_json = json.loads(credentials)
 
