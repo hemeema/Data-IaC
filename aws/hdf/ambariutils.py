@@ -7,7 +7,7 @@ class ambariutils:
     Class used to interact with Ambari REST APIs
 
     """
-    def __init__(self, conf = config.hostconfig(sock.gethostname(), '8080', 'username', 'password')):
+    def __init__(self, conf):
         self.conf = conf
 
     def get_request(self, url):

@@ -10,6 +10,12 @@ dev_bucket = "DEVELOPMENT"
 dev_bucket_id = ""
 conf = hc.hostconfig(port='8443',username='username',password='password')
 
+cred_loc = /tmp/creds.json
+credentials = open(cred_loc,"r")
+cred_json = json.loads(credentials)
+
+conf.set_password(cred_json['password'],cred_json['username'])
+
 amb_client = amb.ambariutils(conf)
 host = amb_client.get_component_hostname('AW', 'NIFI_REGISTRY', 'NIFI_REGISTRY_MASTER')
 print(host)

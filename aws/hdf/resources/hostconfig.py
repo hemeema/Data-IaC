@@ -8,8 +8,9 @@ class hostconfig(object):
             port (int): The port for api communication
             base_url (str): The base url used for all api requests
         """
-    def __init__(self, host="localhost", port='8080', username='username', password='password'):
-        self.hostname = host
+    def __init__(self, port='8080', username='username', password='password'):
+        import socket as sock
+        self.hostname = sock.gethostname()
         self.port = port
         self.username = username
         self.password = password
@@ -22,7 +23,7 @@ class hostconfig(object):
         self.redefine_base_url()
     def set_hostname(self, hostname):
         self.hostname = hostname
-        self.redefine_base_url()
+        self.redefine_base_url():
     def set_username(self, username):
         self.username = username
     def set_password(self, password):
