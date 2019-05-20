@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import nipyapi
 import boto3
+import json
 from hdf import ambariutils as amb
 from hdf.resources import hostconfig as hc
 

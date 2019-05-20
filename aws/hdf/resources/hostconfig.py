@@ -23,7 +23,7 @@ class hostconfig(object):
         self.redefine_base_url()
     def set_hostname(self, hostname):
         self.hostname = hostname
-        self.redefine_base_url():
+        self.redefine_base_url()
     def set_username(self, username):
         self.username = username
     def set_password(self, password):
