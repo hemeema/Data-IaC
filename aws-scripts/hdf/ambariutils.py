@@ -16,4 +16,5 @@ class ambariutils:
     def get_component_hostname(self, cluster_name, service_name, component_name):
         extended_url = self.conf.get_base_url() + 'clusters/' + cluster_name + '/services/' + service_name + '/components/' + component_name
         raw_resp = self.get_request(extended_url)
-        return raw_resp.json()['host_components'][0]['HostRoles']['host_name']
+        host = raw_resp.json()['host_components'][0]['HostRoles']['host_name']
+        return host
