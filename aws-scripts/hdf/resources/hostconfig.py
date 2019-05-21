@@ -27,7 +27,7 @@ class hostconfig(object):
     def set_username(self, username):
         self.username = username
     def set_password(self, password):
-        self.password
+        self.password = password
     def get_base_url(self):
         return self.base_url
     def redefine_base_url(self):
