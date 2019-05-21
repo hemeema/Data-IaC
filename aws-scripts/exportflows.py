@@ -37,7 +37,7 @@ for x in buckets:
 
 flows = nipyapi.versioning.list_flows_in_bucket(dev_bucket_id)
 
-tenant_path = tenant("SB-AW")
+tenant_path = "SB-AW"
 
 session = awsutils.get_session('us-east-1')
 s3_client = boto3.client('s3')
