@@ -5,7 +5,7 @@ import json
 from hdf import ambariutils as amb
 from hdf.resources import hostconfig as hc
 
-from scripts.resources import tenant, awsutils
+from resources import tenant, awsutils
 
 dev_bucket = "DEVELOPMENT"
 dev_bucket_id = ""
