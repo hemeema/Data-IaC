@@ -1,0 +1,21 @@
+{
+  "blueprint" : "hdf-aws-deployment",
+  "default_password" : "hadoop",
+  "host_groups" :[
+    {
+      "name" : "host_group_1",
+	  "host_count" : "1",
+      "host_predicate" : "Hosts/cpu_count>0"
+    },
+    {
+      "name" : "host_group_2",
+      "host_count" : "1",
+      "host_predicate" : "Hosts/cpu_count>0" 
+    },
+    {
+      "name" : "host_group_3",
+      "host_count" : "1",
+      "host_predicate" : "Hosts/cpu_count>0"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+[Unit]
+Description=NiFi-CustomProcessor-Mover
+[Service]
+ExecStart=/tmp/nifi-custom-processors.sh

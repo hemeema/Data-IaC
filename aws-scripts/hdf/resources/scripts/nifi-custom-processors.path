@@ -1,0 +1,4 @@
+[Unit] 
+Description=NiFi-CustomProcessor-Listener
+[Path]
+PathModified=/var/lib/nifi/work/nar/extensions/nifi-standard-nar-1.8.0.3.3.1.0-10.nar-unpacked/NAR-INF/bundled-dependencies/

@@ -1,0 +1,4 @@
+[Unit]
+Description=NiFi-Home-Mover
+[Service]
+ExecStart=/tmp/nifi-move-connectors.sh

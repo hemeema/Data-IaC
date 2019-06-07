@@ -3,9 +3,12 @@ from scripts.resources import awsutils
 import json
 import sys
 
-networkInterface = sys.argv[1]
-keypair = sys.argv[2]
-iamProfile = sys.argv[3]
+subnet = sys.argv[1]
+securityGroup[2]
+keypair = sys.argv[3]
+iamProfile = sys.argv[4]
+
+networkInterface='{"SubnetId":"' + subnet + '","DeviceIndex": 0, "Groups": ["'+securityGroup+'"]}'
 
 # Create Session
 session = awsutils.get_session('us-east-1')
