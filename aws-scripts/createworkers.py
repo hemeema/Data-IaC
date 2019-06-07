@@ -6,10 +6,10 @@ import sys
 subnet = sys.argv[1]
 securityGroup[2]
 keypair = sys.argv[3]
-iamProfile = sys.argv[4]
+role = sys.argv[4]
 
 networkInterface='{"SubnetId":"' + subnet + '","DeviceIndex": 0, "Groups": ["'+securityGroup+'"]}'
-
+iamProfile= '{"Name": "'+role+'"}"'
 # Create Session
 session = awsutils.get_session('us-east-1')
 client = session.client('ec2')
