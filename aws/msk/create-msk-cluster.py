@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from aws.resources import awsutils
+from resources import awsutils
 import json
 import sys
 import os
