@@ -1,8 +1,11 @@
 #!/usr/bin/python
-from resources import awsutils
+import boto3
 import json
 import sys
 import os
+
+def get_session(region):
+    return boto3.session.Session(region_name=region)
 
 subnetA = sys.argv[1]
 subnetB = sys.argv[2]
