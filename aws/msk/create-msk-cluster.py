@@ -24,7 +24,7 @@ os.system("sudo sed -i 's/securityGroup/"+ securityGroup + "/g' /tmp/msk-cluster
 
 
 # Create Session
-session = awsutils.get_session('us-east-1')
+session = get_session('us-east-1')
 client = session.client('kafka')
 
 with open('/tmp/msk-cluster.json', 'r') as file:
