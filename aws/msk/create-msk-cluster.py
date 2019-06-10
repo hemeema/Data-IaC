@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import boto3
+from aws.resources import awsutils
 import json
 import sys
 import os
