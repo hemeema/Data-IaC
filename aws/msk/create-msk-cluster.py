@@ -27,7 +27,7 @@ os.system("sudo sed -i 's/securityGroup/"+ securityGroup + "/g' /tmp/aws/aws/msk
 session = get_session('us-east-1')
 client = session.client('kafka')
 
-with open('/tmp/msk-cluster.json', 'r') as file:
+with open('/tmp/aws/aws/msk/msk-cluster.json', 'r') as file:
     conf = file.read()
 
 # Parse JSON Configuration
