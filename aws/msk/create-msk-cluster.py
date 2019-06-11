@@ -34,6 +34,5 @@ with open('/tmp/aws/aws/msk/msk-cluster.json', 'r') as file:
 conf_json = json.loads(conf)
 
 response = client.create_cluster(BrokerNodeGroupInfo=conf_json['BrokerNodeGroupInfo'],ClusterName=conf_json['ClusterName'],
-                                    EncryptionInfo=conf_json['EncryptionInfo'],EnhancedMonitoring=conf_json['EnhancedMonitoring'],
-                                    KafkaVersion=conf_json['KafkaVersion'], NumberOfBrokerNodes=conf_json['NumberOfBrokerNodes'],
-                                    Tags=conf_json['Tags'])
+                                    EnhancedMonitoring=conf_json['EnhancedMonitoring'],KafkaVersion=conf_json['KafkaVersion'],
+                                    NumberOfBrokerNodes=conf_json['NumberOfBrokerNodes'])
