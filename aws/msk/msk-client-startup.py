@@ -2,7 +2,7 @@
 import os
 import boto3
 import sys
-import json
+
 
 clusterName = sys.argv[1]
 kafka_path = '/lib/kafka_2.12-2.1.0/'
