@@ -17,7 +17,8 @@ kClient = session.client('kafka')
 
 
 
-
+resp = kClient.list_clusters(ClusterNameFilter=clusterName)
+k_conf = resp['ClusterInfoList'][0]
 clusterState = k_conf['State']
 
 while k_conf['State'] != 'ACTIVE':
