@@ -2,6 +2,7 @@
 import os
 import boto3
 import re
+import subprocess
 
 #Define some functions used later on
 def get_session(region):
