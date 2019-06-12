@@ -31,6 +31,7 @@ clusterState = k_conf['State']
 while k_conf['State'] != 'ACTIVE':
     resp = kClient.list_clusters(ClusterNameFilter='BigData-MSK')
     k_conf = resp['ClusterInfoList'][0]
+    time.sleep(60)
 
 os.system("sudo /custom_scripts/create-topics.py")
 os.system("sudo cp /custom_scripts/create-topics.py /etc/cron.hourly/")
