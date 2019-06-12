@@ -2,6 +2,7 @@
 import os
 import boto3
 import sys
+import time
 
 
 clusterName = sys.argv[1]
