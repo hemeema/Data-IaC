@@ -14,7 +14,7 @@ def diff(first, second):
 
 session = get_session('us-east-1')
 s3 = session.client('s3')
-bucket = 'big-data-warehousing'
+bucket = 'BUCKET-NAME'
 
 tables = []
 
