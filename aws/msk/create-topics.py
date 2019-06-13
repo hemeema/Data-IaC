@@ -14,15 +14,30 @@ def diff(first, second):
 
 session = get_session('us-east-1')
 s3 = session.client('s3')
-bucket = 'BUCKET-NAME'
+bucket_re = 'bigdata-warehousing-(.{2,3})'
 
-tables = []
 
-for obj in s3.list_objects_v2(Bucket=bucket)['Contents']:
-    tables.append(re.sub('(\/.+)|(\/)','',obj['Key']))
+#Find warehousing BUCKET
+for obj in s3.list_buckets()['Buckets']:
+    print(obj['Name'])
+    if bool(re.search(bucket_re,obj['Name'])):
+        bucket=obj['Name']
 
-s3List = []
+def get_s3_tables(**kwargs):
+    tables = []
+    resp = s3.list_objects_v2(Bucket=bucket,Delimiter='/',MaxKeys=10,StartAfter=kwargs['startAfter'])['CommonPrefixes']
+    if len(resp)>1:
+        for obj in resp:
+            tables.append(re.sub('(\/.+)|(\/)','',obj['Prefix']))
+        sub_table = get_s3_tables(startAfter=tables[len(tables)-1])
+        tables = tables + sub_table
+    else:
+        for obj in resp:
+            tables.append(re.sub('(\/.+)|(\/)','',obj['Prefix']))
+    return tables
 
+
+s3List =  get_s3_tables(startAfter="")
 for i in tables:
   if i not in s3List:
     s3List.append(i)
