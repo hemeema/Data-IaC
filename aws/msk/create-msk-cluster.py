@@ -44,6 +44,6 @@ conf_json = json.loads(conf)
 
 response = client.create_cluster(BrokerNodeGroupInfo=conf_json['BrokerNodeGroupInfo'],ClusterName=conf_json['ClusterName'],
                                     EnhancedMonitoring=conf_json['EnhancedMonitoring'],KafkaVersion=conf_json['KafkaVersion'],
-                                    NumberOfBrokerNodes=conf_json['NumberOfBrokerNodes'])
+                                    NumberOfBrokerNodes=conf_json['NumberOfBrokerNodes'],EncryptionInfo=['EncryptionInfo'])
 
 os.system("sudo /custom_scripts/msk-client-startup.py " + clusterName)

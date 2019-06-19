@@ -15,7 +15,7 @@ def diff(first, second):
 session = get_session('us-east-1')
 s3 = session.client('s3')
 bucket_re = 'bigdata-warehousing-(.{2,3})'
-s3bucket = ""
+bucket = ""
 
 #Find warehousing BUCKET
 for obj in s3.list_buckets()['Buckets']:
