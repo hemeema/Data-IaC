@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import awsutils, subprocess, os, re
+import awsutils, subprocess, os, re, ec2utils
 
 def get_zk_url(**kwargs):
     path = ''
@@ -43,6 +43,14 @@ def get_topics(**kwargs):
             kafkaTopics.append(elements[topic])
     return kafkaTopics
 
+def get_client():
+    return session.client('kafka')
+
+def get_cluster_state(clusterName):
+    resp = kClient.list_clusters(ClusterNameFilter=clusterName)
+    k_conf = resp['ClusterInfoList'][0]
+    return k_conf['State']
+
 def create_topic(topic_name, zk_url, **kwargs):
     rep_factor = ''
     partition = ''
@@ -56,3 +64,6 @@ def create_topic(topic_name, zk_url, **kwargs):
         partition = 3
 
     os.system("sudo /lib/kafka_2.12-2.1.0/bin/kafka-topics.sh --create --replication-factor " + rep_factor + " --partitions " + partition + " --topic " + topic_name + " --zookeeper " + zk_url)
+
+
+session = awsutils.get_session(ec2utils.get_meta_data().get('region'))
