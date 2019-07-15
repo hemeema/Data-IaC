@@ -46,10 +46,20 @@ def get_topics(**kwargs):
 def get_client():
     return session.client('kafka')
 
-def get_cluster_state(clusterName):
+def get_cluster_state_by_name(clusterName):
+    return list_cluster_by_name(clusterName)['State']
+
+def get_cluster_arn_by_name(clusterName):
+    return list_cluster_by_name(clusterName)['ClusterArn']
+
+def get_zk_url_by_name(clusterName):
+    return list_cluster_by_name(clusterName)['ZookeeperConnectString']
+
+def list_cluster_by_name(clusterName):
     resp = kClient.list_clusters(ClusterNameFilter=clusterName)
-    k_conf = resp['ClusterInfoList'][0]
-    return k_conf['State']
+    return resp['ClusterInfoList'][0]
+
+
 
 def create_topic(topic_name, zk_url, **kwargs):
     rep_factor = ''
