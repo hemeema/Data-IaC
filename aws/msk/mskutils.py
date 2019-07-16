@@ -56,10 +56,8 @@ def get_zk_url_by_name(clusterName):
     return list_cluster_by_name(clusterName)['ZookeeperConnectString']
 
 def list_cluster_by_name(clusterName):
-    resp = kClient.list_clusters(ClusterNameFilter=clusterName)
+    resp = get_client().list_clusters(ClusterNameFilter=clusterName)
     return resp['ClusterInfoList'][0]
-
-
 
 def create_topic(topic_name, zk_url, **kwargs):
     rep_factor = ''
