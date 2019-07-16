@@ -14,8 +14,8 @@ while clusterState != 'ACTIVE':
     time.sleep(60)
 
 
-arn = get_cluster_arn_by_name(clusterName)
-zk_url = get_zk_url_by_name(clusterName)
+arn = mskutils.get_cluster_arn_by_name(clusterName)
+zk_url = mskutils.get_zk_url_by_name(clusterName)
 
 with open(kafka_path + 'connection-url', 'w') as file:
     file.write(zk_url)
