@@ -17,7 +17,7 @@ tables = listutils.deduplicate_list(tables)
 topics = mskutils.get_topics(zk_path = zk_url_path)
 
 #Find the difference between the kafka-topic list and s3 topic list
-new_topics = diff(tables,topics)
+new_topics = listutils.diff_list(tables,topics)
 
 #Create topics
 for i in range(0,len(new_topics)):
