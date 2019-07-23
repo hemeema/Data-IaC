@@ -3,7 +3,7 @@ def deduplicate_list(list):
     deduplicated = []
     for i in list:
       if i not in deduplicated:
-        deduplicated.append(i)
+        deduplicated.append(i.rstrip())
     return deduplicated
 
 def diff_list(first, second):
