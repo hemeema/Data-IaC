@@ -1,0 +1,24 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /tmp
+hooks:
+  BeforeInstall:
+    - location: msk/mskutils.py
+    - location: general/listutils.py
+      runas: root
+  AfterInstall:
+    - location: s3/s3utils.py
+    - location: aws/awsutils.py
+      timeout: 180
+      runas: root
+  ApplicationStart:
+    - location: scripts/msk-client-startup.py
+    - location: scripts/create-topics.py
+      timeout: 3600
+      runas: root
+  ValidateService:
+    - location: ec2/ec2utils.py
+      timeout: 3600
+      runas: root
